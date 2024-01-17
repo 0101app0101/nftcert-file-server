@@ -11,10 +11,10 @@ app.get('/', (req, res) => {
     res.send('file server is UP')
 })
 
-app.post('/files', multerConfig.upload.array('files', 10), (req, res, next) => {
+app.post('/files', multerConfig.upload.array(process.env.FILE_UPLOAD_FIELD_NAME, process.env.FILE_UPLOAD_LIMIT), (req, res, next) => {
 
     req.files.forEach(x => {
-        mysqlConfig.db.query(process.env.ADD_FILE_TO_DB.format(x.filename, x.originalname), function (error, results, fields) {
+        mysqlConfig.db.query(process.env.ADD_FILE_TO_DB.format(x.filename, x.originalname, "USER_ID"), function (error, results, fields) {
             if (error) throw error
         })
     })

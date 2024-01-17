@@ -47,7 +47,7 @@ getFilePathFromFileType = (type) => {
         case process.env.MKV:
             return path.join(__dirname, process.env.FILES_PATH, process.env.VIDEOS_PATH, process.env.MKV);
         default:
-            return path.join(__dirname, process.env.FILES_PATH, process.env.OTHERS);
+            return path.join(__dirname, process.env.FILES_PATH, process.env.OTHERS_PATH);
     }
 }
 

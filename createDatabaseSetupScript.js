@@ -17,7 +17,7 @@ db.query(process.env.CREATE_DATABASE_IF_NOT_EXISTS, function (error, results, fi
     console.log("created Database")
 })
 
-db.query("USE" + " " + process.env.MYSQL_DATABASE, function (error, results, fields) {
+db.query(process.env.USE_DATABASE, function (error, results, fields) {
     if (error) throw new Error("Error using database")
     console.log("using Database")
 })
